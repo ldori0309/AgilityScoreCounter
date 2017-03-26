@@ -1,0 +1,54 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Agility Score Counter</string>
+
+    <!--Strings used in MainActivity.java-->
+    <string name="tyepName">Type in a name, please!</string>
+    <string name="typeBreed">Type in a dog breed, please!</string>
+    <string name="typeSct">Type in an SCT, please!</string>
+    <string name="validSct">Please, give a valid SCT!</string>
+
+    <!--Strings used in Counter.java-->
+    <string name="noQualification">No Qualification</string>
+    <string name="excellent">Excellent</string>
+    <string name="veryGood">Very good</string>
+    <string name="good">Good</string>
+    <string name="resultMessage1">Congratulations! The dog <xliff:g id="name" example="Bori">%s</xliff:g> of breed <xliff:g id="breed" example="Border Collie">%s</xliff:g> has earned the qualification <xliff:g id="qualification" example="Excellent">%s</xliff:g> with <xliff:g id="faults" example="10">%d</xliff:g> faults!</string>
+    <string name="resultMessage2">The dog <xliff:g id="name" example="Bori">%s</xliff:g> of breed <xliff:g id="breed" example="Border Collie">%s</xliff:g> has not earned a qualification this time! Next time you will do better!</string>
+
+    <!--Strings used in activity_main.xml-->
+    <string name="viewRules">View Rules</string>
+    <string name="viewObstacles">View Obstacles</string>
+    <string name="startRound">Start Agility Round</string>
+    <string name="name">Name of the dog:</string>
+    <string name="enterName">Enter Name</string>
+    <string name="breed">Breed of the dog:</string>
+    <string name="enterBreed">Enter Breed</string>
+    <string name="sct">Standard Course Time:</string>
+    <string name="enterSct">Enter SCT in sec</string>
+
+    <!--Strings used in activity_counter.xml-->
+    <string name="courseFaults">Course Faults</string>
+    <string name="timeFaults">Time Faults</string>
+    <string name="remainingTime">Remaining time:</string>
+    <string name="newFault">New Course Fault</string>
+    <string name="eliminated">Eliminated</string>
+    <string name="finished">Finished</string>
+
+    <!--Strings used in activity_rules.xml-->
+    <string name="rules">
+     (1) Total Faults will be calculated as the sum of Course Faults and Time Faults\n\n
+    (2) Course Faults (each in unit of five): \n- Handler touches the dog\n- Handler touches an obstacle\n- Dog traverses in incorrect order\n- Handler goes under or over obstacle\n- Knockdowns\n- Refusals (dog stops in front of an obstacle or on the course, dog runs by an obstacle, etc.)\n\n
+    (3) Time Faults will be added for exceeding the Standard Course Time (a single fault per second)\n\n
+    (4) Elimination from competition:\n- Refusal of an obstacle not corrected\n- Unseemly behaviour towards the judge\n- Harsh handling of the dog\n- Exceeding the Maximum Course Time\n- Three refusals\n- Taking obstacles out of sequence\n- Forgetting to take an obstacle\n- Taking an obstacle in the wrong direction\n- Handler negotiates an obstacle himself, jumps or passes under the obstacle\n- Handler holds something in his hand\n- Dog wearing a collar\n- Stopping on the course because the handler retires (unless instructed by the judge)\n- Dog fouls or leaves the ring or is no longer under control\n- Dog snapping constantly at the handler\n- Starting the run before the judge’s start signal\n"
+    </string>
+    <string name="qualSystem">Qualification System</string>
+    <string name="furtherInformation">For further information please visit:\nhttp://www.fci.be/en/Agility-45.html\n</string>
+    <string name="back">Back</string>
+
+    <!--Strings used in activity_obstacles.xml-->
+    <string name="obstacleTypes">Types of agility obstacles</string>
+
+    <!--Strings used in activity_qualification.xml-->
+    <string name="newRound">New Round</string>
+
+</resources>

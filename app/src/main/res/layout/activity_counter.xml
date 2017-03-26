@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="@dimen/tenDp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/darkBrown"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="@dimen/zeroDp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:padding="@dimen/fourDp"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="@dimen/twelveSp" />
+
+        <View
+            android:layout_width="@dimen/twoDp"
+            android:layout_height="match_parent"
+            android:background="@color/darkerBrown" />
+
+        <TextView
+            android:id="@+id/breedTextView"
+            android:layout_width="@dimen/zeroDp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:padding="@dimen/fourDp"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="@dimen/twelveSp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="@dimen/zeroDp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/tenDp"
+                android:text="@string/courseFaults"
+                android:textColor="@color/brown"
+                android:textSize="@dimen/fifteenSp" />
+
+            <TextView
+                android:id="@+id/faultsTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center_horizontal"
+                android:paddingBottom="@dimen/tenDp"
+                android:text="0"
+                android:textColor="@color/brown"
+                android:textSize="@dimen/fourtySp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/zeroDp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/tenDp"
+                android:text="@string/timeFaults"
+                android:textColor="@color/brown"
+                android:textSize="@dimen/fifteenSp" />
+
+            <TextView
+                android:id="@+id/timeFaultsTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center_horizontal"
+                android:paddingBottom="@dimen/tenDp"
+                android:text="0"
+                android:textColor="@color/brown"
+                android:textSize="@dimen/fourtySp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/tenDp">
+
+        <TextView
+            android:layout_width="@dimen/zeroDp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/remainingTime"
+            android:textColor="@color/brown"
+            android:textSize="@dimen/fifteenSp" />
+
+        <TextView
+            android:id="@+id/sctTextView"
+            android:layout_width="@dimen/zeroDp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center_horizontal|center_vertical"
+            android:text=""
+            android:textColor="@color/green"
+            android:textSize="@dimen/fifteenSp" />
+    </LinearLayout>
+
+    <Button
+        style="@style/ButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="newFault"
+        android:text="@string/newFault" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/twoDp" />
+
+    <Button
+        style="@style/ButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="elimination"
+        android:text="@string/eliminated" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/twoDp" />
+
+    <Button
+        android:id="@+id/finishButton"
+        style="@style/ButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="finishCourse"
+        android:text="@string/finished" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/dogwalk" />
+
+</LinearLayout>

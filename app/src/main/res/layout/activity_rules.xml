@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="@dimen/tenDp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="@dimen/twentyDp"
+            android:text="Faults and elimination rules"
+            android:textAlignment="center"
+            android:textColor="@color/brown"
+            android:textSize="@dimen/twentySp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rules"
+            android:textColor="@color/brown"
+            android:textSize="@dimen/fifteenSp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="@dimen/twentyDp"
+            android:text="@string/qualSystem"
+            android:textAlignment="center"
+            android:textColor="@color/brown"
+            android:textSize="@dimen/twentySp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="In agility tests, the following qualifications will be given:\n\nEXCELLENT: 1 to 5,99 total faults \nVERY GOOD 6 to 15,99 total faults \nGOOD: 16 to 25,99 total faults\nNO QUALIFICATION: more than 26 total faults \n\n"
+            android:textColor="#795548"
+            android:textSize="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="web"
+            android:text="@string/furtherInformation"
+            android:textColor="@color/brown"
+            android:textSize="@dimen/fifteenDp" />
+
+        <Button
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:onClick="backToMain"
+            android:text="@string/back"
+            android:textAllCaps="true"
+            android:textSize="@dimen/twentytwoSp" />
+    </LinearLayout>
+
+</ScrollView>

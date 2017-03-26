@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="@dimen/fifteenDp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zeroDp"
+        android:layout_weight="1"
+        android:paddingBottom="@dimen/tenDp">
+
+        <Button
+            android:layout_width="@dimen/zeroDp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/ButtonStyle"
+            android:gravity="center|left"
+            android:onClick="showRules"
+            android:text="@string/viewRules"
+            android:textAlignment="center" />
+
+        <View
+            android:layout_width="@dimen/twoDp"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_width="@dimen/zeroDp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/ButtonStyle"
+            android:gravity="center|right"
+            android:onClick="showObstacles"
+            android:text="@string/viewObstacles"
+            android:textAlignment="center" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zeroDp"
+        android:layout_weight="2.5">
+
+        <RelativeLayout
+            android:layout_width="@dimen/zeroDp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/dogNameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name"
+                android:textSize="@dimen/fourteenSp" />
+
+            <EditText
+                android:id="@+id/dogName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/dogNameText"
+                android:hint="@string/enterName"
+                android:inputType="textCapWords"
+                android:textSize="@dimen/fourteenSp" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="@dimen/zeroDp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:maxHeight="@dimen/hundredsixtyDp"
+            android:src="@drawable/agilityjump" />
+
+        <RelativeLayout
+            android:layout_width="@dimen/zeroDp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/dogBreedText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="@string/breed"
+                android:textSize="@dimen/fourteenSp" />
+
+            <EditText
+                android:id="@+id/dogBreed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/dogBreedText"
+                android:hint="@string/enterBreed"
+                android:inputType="textCapWords"
+                android:textSize="@dimen/fourteenSp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zeroDp"
+        android:layout_weight="2.5">
+
+        <ImageView
+            android:layout_width="@dimen/zeroDp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:maxHeight="@dimen/hundredsixtyDp"
+            android:src="@drawable/agilitytunnel" />
+
+        <RelativeLayout
+            android:layout_width="@dimen/zeroDp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/sctTimeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Standard Course Time:"
+                android:textSize="@dimen/fourteenSp" />
+
+            <EditText
+                android:id="@+id/sctTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sctTimeText"
+                android:hint="@string/enterSct"
+                android:inputType="number"
+                android:textSize="@dimen/fourteenSp" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="@dimen/zeroDp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:maxHeight="@dimen/hundredsixtyDp"
+            android:src="@drawable/agilitywave" />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zeroDp"
+        style="@style/ButtonStyle"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/tenDp"
+        android:layout_weight="1"
+        android:onClick="startRound"
+        android:text="@string/startRound"
+        android:textAllCaps="true"
+        android:textSize="@dimen/twentytwoSp"
+        android:textStyle="bold" />
+
+</LinearLayout>
