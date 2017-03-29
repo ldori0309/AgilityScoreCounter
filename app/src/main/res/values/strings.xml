@@ -19,9 +19,9 @@
     <string name="viewRules">View Rules</string>
     <string name="viewObstacles">View Obstacles</string>
     <string name="startRound">Start Agility Round</string>
-    <string name="name">Name of the dog:</string>
+    <string name="name">Name of dog:</string>
     <string name="enterName">Enter Name</string>
-    <string name="breed">Breed of the dog:</string>
+    <string name="breed">Breed of dog:</string>
     <string name="enterBreed">Enter Breed</string>
     <string name="sct">Standard Course Time:</string>
     <string name="enterSct">Enter SCT in sec</string>

@@ -19,8 +19,9 @@ public class Counter extends AppCompatActivity {
     String name;
     String breed;
     int time;
-    int timeFaults;
+    int timeFaults = 0;
     Timer timer = new Timer();
+    TextView sctTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +33,7 @@ public class Counter extends AppCompatActivity {
         String sct = getIntent().getStringExtra("sct");
         displayName(name);
         displayBreed(breed);
-        final TextView sctTextView = (TextView) findViewById(R.id.sctTextView);
+        sctTextView = (TextView) findViewById(R.id.sctTextView);
         time = Integer.parseInt(sct.trim());
         sctTextView.setText("" + time);
         timer.scheduleAtFixedRate(new TimerTask() {
@@ -49,11 +50,35 @@ public class Counter extends AppCompatActivity {
                             sctTextView.setTextColor(ContextCompat.getColor(Counter.context, R.color.red));
                             newTimeFault(-time);
                         }
-                        sctTextView.setText("" + time);
+                        displayTime(time);
                     }
                 });
             }
         }, 1000, 1000);
+    }
+
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putInt("Time", time);
+        savedInstanceState.putInt("CourseFaults", courseFaults);
+        savedInstanceState.putInt("TimeFaults", timeFaults);
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        time = savedInstanceState.getInt("Time");
+        courseFaults = savedInstanceState.getInt("CourseFaults");
+        timeFaults = savedInstanceState.getInt("TimeFaults");
+        displayFaults(courseFaults);
+        displayTimeFaults(timeFaults);
+        displayTime(time);
+    }
+
+    public void displayTime(int time) {
+        sctTextView.setText("" + time);
     }
 
     public void displayName(String name){
@@ -88,29 +113,12 @@ public class Counter extends AppCompatActivity {
 
     public void finishCourse(View view) {
         timer.cancel();
-        setContentView(R.layout.activity_qualification);
-        setResultText();
-    }
-
-    public void setResultText() {
-        TextView resultTextView = (TextView) findViewById(R.id.resultTextView);
-        int totalFaults = courseFaults + timeFaults;
-        String qualification = calculateQualification(totalFaults);
-        if (!qualification.equals("No Qualification")) {
-            //resultTextView.setText("Congratulations! The dog named " + name.toUpperCase() + " of breed " + breed.toUpperCase() + " has earned the qualification " + qualification.toUpperCase() + " with " + (courseFaults + timeFaults) + " faults!");
-            resultTextView.setText(getResources().getString(R.string.resultMessage1, name.toUpperCase(), breed.toUpperCase(), qualification.toUpperCase(), totalFaults));
-        }
-        else {
-            //resultTextView.setText("The dog " + name.toUpperCase() + " of breed " + breed.toUpperCase() + " has not earned a qualification this time! Don't give up, next time you'll do better!");
-            resultTextView.setText(getResources().getString(R.string.resultMessage2, name.toUpperCase(), breed.toUpperCase()));
-        }
-    }
-
-    public String calculateQualification(int faults) {
-        if (faults < 6) return "Excellent";
-        else if (faults < 16) return "Very Good";
-        else if (faults < 26) return "Good";
-        else return "No Qualification";
+        finish();
+        Intent newResults = new Intent(this, Results.class);
+        newResults.putExtra("name",name);
+        newResults.putExtra("breed",breed);
+        newResults.putExtra("totalFaults",courseFaults+timeFaults);
+        startActivity(newResults);
     }
 
     public void elimination(View view) {
@@ -119,10 +127,6 @@ public class Counter extends AppCompatActivity {
         button.performClick();
     }
 
-    public void newRound(View v) {
-        finish();
-        Intent newIntent = new Intent(this, MainActivity.class);
-        startActivity(newIntent);
-    }
+
 
 }
