@@ -57,7 +57,6 @@ public class Counter extends AppCompatActivity {
         }, 1000, 1000);
     }
 
-
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
         savedInstanceState.putInt("Time", time);
@@ -69,12 +68,16 @@ public class Counter extends AppCompatActivity {
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        time = savedInstanceState.getInt("Time");
-        courseFaults = savedInstanceState.getInt("CourseFaults");
-        timeFaults = savedInstanceState.getInt("TimeFaults");
-        displayFaults(courseFaults);
-        displayTimeFaults(timeFaults);
-        displayTime(time);
+        if (savedInstanceState !=null) {
+            time = savedInstanceState.getInt("Time");
+            courseFaults = savedInstanceState.getInt("CourseFaults");
+            timeFaults = savedInstanceState.getInt("TimeFaults");
+            if (time < 0)
+                sctTextView.setTextColor(ContextCompat.getColor(Counter.context, R.color.red));
+            displayFaults(courseFaults);
+            displayTimeFaults(timeFaults);
+            displayTime(time);
+        }
     }
 
     public void displayTime(int time) {

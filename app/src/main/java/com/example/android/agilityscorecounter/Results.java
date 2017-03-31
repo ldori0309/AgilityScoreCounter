@@ -22,7 +22,6 @@ public class Results extends AppCompatActivity {
         setResultText();
     }
 
-
     public void setResultText() {
         TextView resultTextView = (TextView) findViewById(R.id.resultTextView);
         String qualification = calculateQualification(totalFaults);
