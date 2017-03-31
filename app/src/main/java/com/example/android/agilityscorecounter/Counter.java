@@ -18,9 +18,15 @@ public class Counter extends AppCompatActivity {
     int courseFaults = 0;
     String name;
     String breed;
+    String sct;
     int time;
     int timeFaults = 0;
     Timer timer = new Timer();
+
+    TextView nameTextView;
+    TextView breedTextView;
+    TextView faultsTextView;
+    TextView timeFaultsTextView;
     TextView sctTextView;
 
     @Override
@@ -30,10 +36,17 @@ public class Counter extends AppCompatActivity {
         setContentView(R.layout.activity_counter);
         name = getIntent().getStringExtra("name");
         breed = getIntent().getStringExtra("breed");
-        String sct = getIntent().getStringExtra("sct");
-        displayName(name);
-        displayBreed(breed);
+        sct = getIntent().getStringExtra("sct");
+
+        nameTextView = (TextView) findViewById(R.id.nameTextView);
+        breedTextView = (TextView) findViewById(R.id.breedTextView);
+        faultsTextView = (TextView) findViewById(R.id.faultsTextView);
+        timeFaultsTextView = (TextView) findViewById(R.id.timeFaultsTextView);
         sctTextView = (TextView) findViewById(R.id.sctTextView);
+
+        displayString(name, nameTextView);
+        displayString(breed, breedTextView);
+
         time = Integer.parseInt(sct.trim());
         sctTextView.setText("" + time);
         timer.scheduleAtFixedRate(new TimerTask() {
@@ -46,11 +59,10 @@ public class Counter extends AppCompatActivity {
                     {
                         time--;
                         if (time < 0) {
-                            //sctTextView.setTextColor(Color.parseColor("#F44336"));
                             sctTextView.setTextColor(ContextCompat.getColor(Counter.context, R.color.red));
                             newTimeFault(-time);
                         }
-                        displayTime(time);
+                        displayString("" + time, sctTextView);
                     }
                 });
             }
@@ -74,44 +86,24 @@ public class Counter extends AppCompatActivity {
             timeFaults = savedInstanceState.getInt("TimeFaults");
             if (time < 0)
                 sctTextView.setTextColor(ContextCompat.getColor(Counter.context, R.color.red));
-            displayFaults(courseFaults);
-            displayTimeFaults(timeFaults);
-            displayTime(time);
+            displayString("" + courseFaults, faultsTextView);
+            displayString("" + timeFaults, timeFaultsTextView);
+            displayString("" + time, sctTextView);
         }
     }
 
-    public void displayTime(int time) {
-        sctTextView.setText("" + time);
-    }
-
-    public void displayName(String name){
-        TextView nameTextView = (TextView) findViewById(R.id.nameTextView);
-        nameTextView.setText("" + name);
-    }
-
-    public void displayBreed(String breed){
-        TextView breedTextView = (TextView) findViewById(R.id.breedTextView);
-        breedTextView.setText("" + breed);
-    }
-
     public void newFault(View view) {
-        courseFaults = courseFaults + 5;
-        displayFaults(courseFaults);
+        courseFaults += 5;
+        displayString("" + courseFaults, faultsTextView);
     }
 
     public void newTimeFault(int time) {
         timeFaults = time;
-        displayTimeFaults(timeFaults);
+        displayString("" + timeFaults, timeFaultsTextView);
     }
 
-    public void displayFaults(int courseFaults) {
-        TextView faultsTextView = (TextView) findViewById(R.id.faultsTextView);
-        faultsTextView.setText("" + courseFaults);
-    }
-
-    public void displayTimeFaults(int timeFaults) {
-        TextView timeFaultsTextView = (TextView) findViewById(R.id.timeFaultsTextView);
-        timeFaultsTextView.setText("" + timeFaults);
+    public void displayString(String myString, TextView myTextView) {
+        myTextView.setText(myString);
     }
 
     public void finishCourse(View view) {
@@ -129,7 +121,5 @@ public class Counter extends AppCompatActivity {
         Button button = (Button) findViewById(R.id.finishButton);
         button.performClick();
     }
-
-
 
 }
