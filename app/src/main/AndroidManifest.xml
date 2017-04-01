@@ -17,6 +17,10 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".Rules" />
+        <activity
+            android:name=".Obstacles" />
+        <activity
             android:name=".Counter" />
         <activity
             android:name=".Results" />
