@@ -16,9 +16,8 @@ public class Counter extends AppCompatActivity {
 
     private static Context context;
     int courseFaults = 0;
-    String name;
-    String breed;
-    String sct;
+    String strings;
+    String[] stringsArray = new String[3];
     int time;
     int timeFaults = 0;
     Timer timer = new Timer();
@@ -34,9 +33,13 @@ public class Counter extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         this.context = getApplicationContext();
         setContentView(R.layout.activity_counter);
-        name = getIntent().getStringExtra("name");
+
+        Bundle bundle = getIntent().getExtras();
+        strings = bundle.getString("strings");
+        stringsArray = strings.split("\\|");
+/*        name = getIntent().getStringExtra("name");
         breed = getIntent().getStringExtra("breed");
-        sct = getIntent().getStringExtra("sct");
+        sct = getIntent().getStringExtra("sct");*/
 
         nameTextView = (TextView) findViewById(R.id.nameTextView);
         breedTextView = (TextView) findViewById(R.id.breedTextView);
@@ -44,10 +47,10 @@ public class Counter extends AppCompatActivity {
         timeFaultsTextView = (TextView) findViewById(R.id.timeFaultsTextView);
         sctTextView = (TextView) findViewById(R.id.sctTextView);
 
-        displayString(name, nameTextView);
-        displayString(breed, breedTextView);
+        displayString(stringsArray[0], nameTextView);
+        displayString(stringsArray[1], breedTextView);
 
-        time = Integer.parseInt(sct.trim());
+        time = Integer.parseInt(stringsArray[2].trim());
         sctTextView.setText("" + time);
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -110,9 +113,11 @@ public class Counter extends AppCompatActivity {
         timer.cancel();
         finish();
         Intent newResults = new Intent(this, Results.class);
-        newResults.putExtra("name",name);
-        newResults.putExtra("breed",breed);
-        newResults.putExtra("totalFaults",courseFaults+timeFaults);
+        String strings;
+        strings = stringsArray[0] + "|";
+        strings += stringsArray[1] + "|";
+        strings += "" + (courseFaults + timeFaults);
+        newResults.putExtra("strings",strings);
         startActivity(newResults);
     }
 

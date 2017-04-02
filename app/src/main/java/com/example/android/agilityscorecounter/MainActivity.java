@@ -13,10 +13,6 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    String name;
-    String breed;
-    String sct;
-
     EditText dogName;
     EditText dogBreed;
     EditText sctTime;
@@ -68,19 +64,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startRound(View view) {
-        name = dogName.getText().toString();
+        String name = dogName.getText().toString();
         if(name.trim().equals("")) {
             Toast.makeText(this, getResources().getString(R.string.tyepName), Toast.LENGTH_SHORT).show();
             return;
         }
 
-        breed = dogBreed.getText().toString();
+        String breed = dogBreed.getText().toString();
         if(breed.trim().equals("")) {
             Toast.makeText(this, getResources().getString(R.string.typeBreed), Toast.LENGTH_SHORT).show();
             return;
         }
 
-        sct = sctTime.getText().toString();
+        String sct = sctTime.getText().toString();
         if(sct.trim().equals("")) {
             Toast.makeText(this, getResources().getString(R.string.typeSct), Toast.LENGTH_SHORT).show();
             return;
@@ -94,10 +90,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
         finish();
+        String strings;
+        strings = name + "|";
+        strings += breed + "|";
+        strings += sct;
         Intent newCounter = new Intent(this, Counter.class);
-        newCounter.putExtra("name",name);
+        newCounter.putExtra("strings",strings);
+        /*newCounter.putExtra("name",name);
         newCounter.putExtra("breed",breed);
-        newCounter.putExtra("sct",sct);
+        newCounter.putExtra("sct",sct);*/
         startActivity(newCounter);
     }
 
